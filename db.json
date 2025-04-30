@@ -7,8 +7,18 @@
       "role": "admin",
       "biz": true,
       "favorites": [
-        "eba2"
-      ]
+        "eba2",
+        "10f2"
+      ],
+      "first": "Admin",
+      "last": "adm",
+      "phone": "0502020202",
+      "image": "https://www.sfdcpoint.com/wp-content/uploads/2019/01/Salesforce-Admin-Interview-questions.png",
+      "alt": "",
+      "city": "Ako",
+      "street": "Ako",
+      "houseNumber": "1",
+      "zip": ""
     },
     {
       "id": "2",
@@ -67,8 +77,7 @@
       "biz": true,
       "role": "biz",
       "favorites": [
-        "eba2",
-        "10f2"
+        "79cb"
       ]
     },
     {
@@ -109,7 +118,7 @@
       "description": "A cozy place to enjoy freshly brewed coffee and pastries.",
       "subtitle": "Fresh coffee every morning",
       "title": "Coffee Time",
-      "userEmail": "Admin@example.com"
+      "userEmail": "admin@example.com"
     },
     {
       "id": "79cb",

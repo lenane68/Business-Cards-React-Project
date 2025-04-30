@@ -10,16 +10,14 @@ function MyCards({darkMode}) {
   const [cards, setCards] = useState([]);
   const { user } = useAuth();
   const navigate = useNavigate();
+  
 
 
   useEffect(() => {
     async function fetchData() {
       try {
         const { data } = await getAll();
-        const filteredCards =
-          user?.role === "admin"
-            ? data
-            : data.filter((card) => card.userEmail === user.email);
+        const filteredCards = data.filter((card) => card.userEmail === user.email);
         setCards(filteredCards);
       } catch (error) {
         console.error("Error fetching cards", error);

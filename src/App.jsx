@@ -6,6 +6,8 @@ import Footer from "./components/footer";
 import NavBar from "./components/navbar";
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
+import UpdateProfile from "./pages/updateProfile";
+import Crm from "./pages/crm"; 
 
 
 import Home from "./pages/home";
@@ -18,7 +20,6 @@ import CardCreate from "./pages/cardCreate";
 import CardUpdate from "./pages/cardUpdate";
 import CardDelete from "./pages/cardDelete";
 import ProtectedRoute from "./components/common/protectedRoute";
-import Sandbox from "./pages/sandBox";
 import Favorites from "./pages/favorites";
 import SearchPage from "./pages/searchPage";
 import CardDetails from "./pages/cardDetails";
@@ -37,7 +38,7 @@ function App() {
       <NavBar darkMode={darkMode} setDarkMode={setDarkMode} />
 
       </header>
-      <main className="flex-fill">
+      <main className="flex-fill pb-5">
       <ToastContainer position="top-center" />
         <Routes>
         <Route path="/" element={<Home darkMode={darkMode} />} />
@@ -83,20 +84,18 @@ function App() {
     </ProtectedRoute>
   }
 />
-          <Route
-  path="/sandbox"
-  element={
-    <ProtectedRoute requiredRole="admin">
-      <Sandbox />
-    </ProtectedRoute>
-  }
-/>
 
           <Route path="/sign-in" element={<SignIn />} />
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/sign-out" element={<SignOut />} />
           <Route path="/search" element={<SearchPage />} />
           <Route path="/cards/:id" element={<CardDetails />} />
+          <Route path="/profile" element={<UpdateProfile />} />
+          <Route path="/crm" element={<ProtectedRoute requiredRole="admin"> <Crm />
+    </ProtectedRoute>
+  }
+/>
+
         </Routes>
       </main>
       <Footer darkMode={darkMode} />

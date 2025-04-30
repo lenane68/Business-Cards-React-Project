@@ -66,13 +66,19 @@ export async function toggleFavorite(userId, cardId) {
   return httpService.patch(`/users/${userId}`, { favorites: updatedFavorites });
 }
 
+export async function updateUser(id, updatedData) {
+  return httpService.patch(`/users/${id}`, updatedData);
+}
+
+
 const usersService = {
   createUser,
   login,
   logout,
   getJWT,
   getLoggedInUser,
-  toggleFavorite
+  toggleFavorite,
+  updateUser
 };
 
 

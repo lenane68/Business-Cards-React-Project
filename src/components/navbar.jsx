@@ -2,12 +2,13 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import Logo from "./logo";
 import { useAuth } from "../context/auth.context";
 import { useState } from "react";
-import { BsMoon, BsSun } from "react-icons/bs";
+import { BsMoon, BsSun, BsPersonCircle } from "react-icons/bs";
 
 function NavBar({ darkMode, setDarkMode }) {
   const { user } = useAuth();
   const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
+  const [dropdownOpen, setDropdownOpen] = useState(false);
 
   return (
     <nav
@@ -56,22 +57,23 @@ function NavBar({ darkMode, setDarkMode }) {
                 </li>
               )}
 
-              {user?.role === "admin" && (
-                <li className="nav-item">
-                  <NavLink className="nav-link" to="/sandbox">
-                    SANDBOX
-                  </NavLink>
-                </li>
-              )}
+{user?.role === "admin" && (
+  <li className="nav-item">
+    <NavLink className="nav-link" to="/crm">
+      CRM
+    </NavLink>
+  </li>
+)}
+
             </ul>
 
-            <ul className="navbar-nav mb-2 mb-md-0">
+            <ul className="navbar-nav mb-2 mb-md-0 align-items-center">
               <li className="nav-item">
                 <form
                   className="d-flex align-items-center"
                   onSubmit={(e) => {
                     e.preventDefault();
-                    navigate(`/search?query=${searchTerm}`);
+                    navigate(`/search?q=${encodeURIComponent(searchTerm)}`);
                   }}
                 >
                   <div className="input-group">
@@ -100,10 +102,50 @@ function NavBar({ darkMode, setDarkMode }) {
               </li>
 
               {user ? (
-                <li className="nav-item">
-                  <NavLink className="nav-link" to="/sign-out">
-                    SIGNOUT
-                  </NavLink>
+                <li className="nav-item dropdown">
+                  <button
+                    className="btn nav-link dropdown-toggle border-0 bg-transparent"
+                    onClick={() => setDropdownOpen(!dropdownOpen)}
+                  >
+                    {user.image ? (
+                      <img
+                        src={user.image}
+                        alt="Profile"
+                        className="rounded-circle"
+                        width="32"
+                        height="32"
+                      />
+                    ) : (
+                      <BsPersonCircle size={28} />
+                    )}
+                  </button>
+                  {dropdownOpen && (
+  <ul
+    className={`dropdown-menu dropdown-menu-end show shadow ${
+      darkMode ? "bg-dark text-white" : "bg-light text-dark"
+    }`}
+    style={{ right: 0, left: "auto" }}
+  >
+    <li>
+      <NavLink
+        className={`dropdown-item ${darkMode ? "text-white" : "text-dark"}`}
+        to="/profile"
+        onClick={() => setDropdownOpen(false)}
+      >
+        Update Profile
+      </NavLink>
+    </li>
+    <li>
+      <NavLink
+        className={`dropdown-item ${darkMode ? "text-white" : "text-dark"}`}
+        to="/sign-out"
+        onClick={() => setDropdownOpen(false)}
+      >
+        Sign Out
+      </NavLink>
+    </li>
+  </ul>
+)}
                 </li>
               ) : (
                 <>

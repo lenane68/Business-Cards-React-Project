@@ -2,7 +2,7 @@ import axios from "axios";
 import config from "../config.json";
 
 const instance = axios.create({
-  baseURL: config.apiUrl // ללא /api בסוף!
+  baseURL: config.apiUrl 
 });
 
 function setDefaultCommonHeaders(headerName, headerValue) {

@@ -17,6 +17,16 @@
   color: white;
 }
 
+.bg-dark .dropdown-item:hover {
+  background-color: #495057 !important;
+  color: #fff !important;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+}
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

@@ -27,7 +27,7 @@ export const FavoritesProvider = ({ children }) => {
       await usersService.toggleFavorite(user.id, cardId);
   
       setFavorites(updatedFavorites);
-      updateUserFavorites(updatedFavorites); // ✅ update user in context too
+      updateUserFavorites(updatedFavorites); 
     } catch (err) {
       console.error("Failed to update favorites", err);
     }

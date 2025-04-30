@@ -3,11 +3,15 @@ import { useEffect, useState } from "react";
 import { getAll } from "../services/cardsService";
 import PageHeader from "../components/common/pageHeader";
 import { useNavigate } from "react-router-dom";
+import { useFavorites } from "../context/favorites.context";
+
 
 function CardDetails() {
   const { id } = useParams();
   const [card, setCard] = useState(null);
   const navigate = useNavigate();
+  const { isFavorite, toggleFavorite } = useFavorites();
+
 
   useEffect(() => {
     async function fetchCard() {
@@ -25,6 +29,22 @@ function CardDetails() {
   return (
     <div className="container py-4">
       <PageHeader title={card.title} description={card.subtitle} />
+      <div className="d-flex justify-content-between align-items-center my-3">
+  <button
+    className="btn btn-outline-secondary"
+    onClick={() => navigate(-1)}
+  >
+    ← Back
+  </button>
+
+  <button
+    className={`btn ${isFavorite(card.id) ? "btn-danger" : "btn-outline-danger"}`}
+    onClick={() => toggleFavorite(card.id)}
+  >
+    {isFavorite(card.id) ? "💖 Remove from Favorites" : "🤍 Add to Favorites"}
+  </button>
+</div>
+      
 
       <div className="row g-4 mt-3">
         {/* Image + Info */}
@@ -67,13 +87,9 @@ function CardDetails() {
             </div>
           </div>
         </div>
+
       </div>
-      <button
-  className="btn btn-outline-secondary mb-3"
-  onClick={() => navigate(-1)}
->
-  ← Back
-</button>
+
 
     </div>
   );

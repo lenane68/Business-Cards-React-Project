@@ -55,15 +55,6 @@ function refreshToken() {
 function getJWT() {
   return localStorage.getItem(TOKEN_KEY);
 }
-
-const usersService = {
-  createUser,
-  login,
-  logout,
-  getJWT,
-  getLoggedInUser,
-};
-
 export async function toggleFavorite(userId, cardId) {
   const { data: user } = await httpService.get(`/users/${userId}`);
   const favorites = user.favorites || [];
@@ -74,5 +65,16 @@ export async function toggleFavorite(userId, cardId) {
 
   return httpService.patch(`/users/${userId}`, { favorites: updatedFavorites });
 }
+
+const usersService = {
+  createUser,
+  login,
+  logout,
+  getJWT,
+  getLoggedInUser,
+  toggleFavorite
+};
+
+
 
 export default usersService;

